@@ -10,4 +10,8 @@ public class SecurityContextHolder {
     public static User getUser(){
         return user;
     }
+
+    public static User logOut(){
+        return user = null;
+    }
 }
