@@ -1,6 +1,6 @@
 package nl.hhs.superdeboer.user;
 
-public class SecurityHolder {
+public class SecurityContextHolder {
     private static User user;
 
     public static void setAuthentication(User authenticatedUser){
