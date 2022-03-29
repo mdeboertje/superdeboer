@@ -3,14 +3,15 @@ package nl.hhs.superdeboer.user;
 import nl.hhs.superdeboer.shoppinglist.ShoppingList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
     private String email;
     private String password;
-    private ArrayList<Roles> roles;
-    private ArrayList<ShoppingList> shoppingLists;
+    private List<Roles> roles;
+    private List<ShoppingList> shoppingLists;
 
-    public User(String email, String password, ArrayList<Roles> roles, ArrayList<ShoppingList> shoppingLists) {
+    public User(String email, String password, List<Roles> roles, List<ShoppingList> shoppingLists) {
         this.email = email;
         this.password = password;
         this.roles = roles;
@@ -33,7 +34,7 @@ public class User {
         this.password = password;
     }
 
-    public ArrayList<Roles> getRoles() {
+    public List<Roles> getRoles() {
         return roles;
     }
 
@@ -41,7 +42,7 @@ public class User {
         this.roles = roles;
     }
 
-    public ArrayList<ShoppingList> getShoppingLists() {
+    public List<ShoppingList> getShoppingLists() {
         return shoppingLists;
     }
 }
