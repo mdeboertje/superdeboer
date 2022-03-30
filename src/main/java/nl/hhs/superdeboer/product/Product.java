@@ -52,8 +52,16 @@ public class Product {
         return creationDate;
     }
 
+    public void setCreationDate() {
+        this.creationDate = creationDate;
+    }
+
     public User getCreatedBy() {
         return createdBy;
+    }
+
+    public void setCreatedBy(){
+        this.createdBy = createdBy;
     }
 
     public LocalDate getModifiedDate() {
