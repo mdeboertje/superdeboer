@@ -1,35 +1,40 @@
 package nl.hhs.superdeboer.product;
 
+import nl.hhs.superdeboer.converter.GsonConverter;
+import nl.hhs.superdeboer.user.SecurityContextHolder;
 import nl.hhs.superdeboer.user.User;
 
 import java.time.LocalDate;
 
-public class Product {
-    private String name;
+public abstract class Product implements GsonConverter {
+    private final String name;
     private double price;
     private int aisle;
     private final LocalDate creationDate;
     private final User createdBy;
     private LocalDate modifiedDate;
     private User lastEditedBy;
+    private final ProductType productType;
 
-    public Product(String name, double price, int aisle, LocalDate creationDate, User createdBy, LocalDate modifiedDate, User lastEditedBy) {
+    protected Product(String name, double price, int aisle, LocalDate modifiedDate, User lastEditedBy, ProductType productType) {
         this.name = name;
         this.price = price;
         this.aisle = aisle;
-        this.creationDate = creationDate;
-        this.createdBy = createdBy;
+        this.productType = productType;
+        this.creationDate = LocalDate.now();
+        this.createdBy = SecurityContextHolder.getUser();
         this.modifiedDate = modifiedDate;
         this.lastEditedBy = lastEditedBy;
+    }
+
+    protected Product(String name, double price, int aisle) {
+        this(name, price, aisle, null, null, ProductType.GENERIC);
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public double getPrice() {
         return price;
@@ -52,16 +57,9 @@ public class Product {
         return creationDate;
     }
 
-    public void setCreationDate() {
-        this.creationDate = creationDate;
-    }
 
     public User getCreatedBy() {
         return createdBy;
-    }
-
-    public void setCreatedBy(){
-        this.createdBy = createdBy;
     }
 
     public LocalDate getModifiedDate() {

@@ -4,10 +4,10 @@ package nl.hhs.superdeboer.user;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Login {
+public class Authenticator {
     private final Set<User> users = new HashSet<>();
 
-    public Login() {
+    public Authenticator() {
         users.add(new User("piet@piet.nl", "test"));
         users.add(new User("jan@piet.nl", "test"));
 

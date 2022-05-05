@@ -1,12 +1,13 @@
 package nl.hhs.superdeboer.user;
 
+import nl.hhs.superdeboer.converter.GsonConverter;
 import nl.hhs.superdeboer.shoppinglist.ShoppingList;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class User {
+public class User implements GsonConverter {
     private String email;
     private String password;
     private List<Roles> roles;

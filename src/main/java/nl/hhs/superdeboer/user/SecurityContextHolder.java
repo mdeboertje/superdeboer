@@ -11,7 +11,8 @@ public class SecurityContextHolder {
         return user;
     }
 
-    public static User logOut(){
-        return user = null;
+
+    public static void logOut(){
+        SecurityContextHolder.setAuthentication(null);
     }
 }
